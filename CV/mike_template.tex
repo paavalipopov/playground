@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fontawesome}
+\usepackage{titlesec}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\textbf{Mike Doan}}\\[0.5em]
+\href{https://github.com/spikedoanz}{\faGithub\, github.com/spikedoanz} \quad
+\href{https://x.com/spikedoanz}{\S\, supaiku.com} \quad
+\href{mailto:spikedoanz@gmail.com}{\faEnvelope\, spikedoanz@gmail.com}
+\end{center}
+
+\section*{Education}
+\textbf{Master of Science in Computer Science} \hfill Expected 2026\\
+Georgia State University \hfill
+Specialization in Machine Learning \& High-Performance Computing\\
+
+\textbf{Bachelor of Science in Computer Science} \hfill Graduated 2024\\
+Georgia State University \hfill Summa Cum Laude
+
+\section*{Experience}
+\textbf{TReNDS Center : Graduate Researcher} \hfill 2023--2025
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Developed tools for training and deploying brain segmentation models using distributed systems
+    \item Collaborated with clinicians and radiologists to implement ML tools in clinical practice.
+    \item Created zero-copy data management system handling 1PB+ of training data
+    \item Implemented performance monitoring and debugging tools for distributed training
+    \item Used synthetic data to train competitive models 100x smaller than SOTA UNet competitors
+\end{itemize}
+
+\textbf{MORSE Studio : Research Assistant} \hfill 2021--2022
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Developed data collection robots for meteorological and soil quality data
+    \item Built data cleaning and annotation pipeline for time series weather forecasting
+    \item Implemented automated validation and error detection systems
+\end{itemize}
+
+\section*{Open Source Projects}
+\textbf{Wirehead: Scaling Synthetic Data Generation}
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Created and maintain open-source framework for massively scaling synthetic data generation
+    \item Implemented a novel data structure, the distributed double buffer for efficient all O(1) data movement.
+    \item Achieved 98\% GPU utilization (up from 35\%) through optimized data prefetching
+    \item Designed fault-tolerant, leaderless architecture that scales up to 1000+ instances.
+    \item Drastically accelerated experimentation cycles on synthetic data from 7 days to 4 hours.
+\end{itemize}
+
+\textbf{Brainchop: In Browser Secure ML Neuroimaging}
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Decreased inference memory footprint by 90\%, making models work on consumer hardware in browser
+    \item Contributed robust, brain segmentation models trained on pure synthetic data
+    \item Delivered secure ML tooling to hundreds of practicing radiologists and neuroimaging experts
+\end{itemize}
+
+\section*{Technical Skills}
+\begin{itemize}
+[leftmargin=*,noitemsep]
+\item \textbf{Machine Learning:} Python, Julia, PyTorch, TinyGrad, CUDA
+\item \textbf{Systems Programming:} Rust, C
+\item \textbf{Infrastructure:} Docker, SLURM, MongoDB, Redis
+\item \textbf{Formal Methods:} Lean4, z3 prover
+
+\end{itemize}
+
+\section*{Publications}
+Doan, M., Plis, S. \href{https://ieeexplore.ieee.org/document/10807405}{"Scaling Synthetic Brain Data Generation."} \textit{IEEE BHI 2024},
+First author
+
+\end{document}

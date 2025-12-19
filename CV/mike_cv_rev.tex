@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+% \usepackage{fontawesome}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage{academicons}
+
+% % --- Font: Source Sans Pro via Type1 (works with pdfLaTeX)
+% \usepackage[default,scale=1.0]{sourcesanspro} % body + sans by default
+% \renewcommand{\familydefault}{\sfdefault}      % make sans the default family
+% \usepackage[scaled]{helvet}
+\usepackage[default,scale=0.95]{opensans}
+
+% (optional) math that pairs reasonably with sans body
+\usepackage{newtxsf} % sans math; or use newtxtext/newtxmath for serif math
+
+
+\usepackage[
+    backend=biber,
+    style=ieee,      % or 'ieee' / 'apa' / 'numeric-comp' depending on preference
+    sorting=ydnt,          % Year (descending), name, title
+    maxbibnames=99,        % show all authors instead of "et al."
+    maxcitenames=2,        % optional: limit names in in-text citations
+    giveninits=false,      % show full first names (set true for initials)
+    uniquename=false,      % don't force initials to distinguish same names
+    doi=false,             % suppress DOI (optional)
+    url=false              % suppress URL unless needed
+]{biblatex}
+\addbibresource{references.bib}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\textbf{Pavel Popov}}\\[0.5em]
+\href{https://github.com/paavalipopov}{\faGithub\ github.com/paavalipopov} \quad
+\href{https://www.linkedin.com/in/pavel-popov-83b69a123/}{\faLinkedin\ Pavel Popov} \quad
+\href{https://scholar.google.com/citations?user=4alUD5UAAAAJ}{\aiGoogleScholar\ Pavel Popov}
+\href{mailto:paavali.popov@gmail.com}{\faEnvelope\  paavali.popov@gmail.com}
+\end{center}
+
+\section*{Skills}
+\begin{itemize}
+[leftmargin=*,noitemsep]
+\item \textbf{Programming \& Tools:} Python, PyTorch, Scikit-learn, Pandas, MATLAB, Git, Docker, SLURM, SQL, mongoDB.
+\item \textbf{Machine Learning:} Deep learning architecture design, time series analysis, causal inference, explainable AI, DDP.
+\item \textbf{Data mining:} Frequent pattern analysis, feature engineering, data visualization.
+\item \textbf{Domain Expertise:} Neuroimaging, solid state physics, signal processing.
+
+\end{itemize}
+
+\section*{Education}
+\textbf{PhD in Computer Science} \hfill 2022--05/2027\\
+Georgia State University \hfill
+Specialization in Machine Learning \& Neuroimaging Analysis\\
+
+\textbf{MS in Applied Mathematics and Physics} \hfill 2018--2020\\
+Moscow Institute of Physics and Technology \hfill Specialization in Spintronics\\
+
+\textbf{BS in Applied Mathematics and Physics} \hfill 2014--2018\\
+Moscow Institute of Physics and Technology \hfill Specialization in Solid State Physics
+
+\section*{Experience}
+\textbf{TReNDS Center : Graduate Research Assistant} \hfill 2022--Now
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Developed a robust DL classifier for medical diagnostics of functional MRI scans with SOTA performance and 10x speedup to existing benchmarks.
+    \item Designed an interpretable DL simulator of brain activation dynamics for mining brain connectivity patterns and markers of brain disorders.
+    \item Developed tools for training and deploying DL models for neuroimaging analysis using distributed systems.
+    \item Collaborated with clinicians and radiologists to implement ML tools in clinical practice.
+    \item Research project management, technical presentations.
+\end{itemize}
+
+\textbf{Institute of Radioengineering and Electronics : Research Assistant} \hfill 2017--2020
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Studied magnetic waves and complex geometry waveguides for potential use in novel logic device architectures.
+    \item Theoretically described a voltage mechanism for control of THz magnetization dynamics in antiferromagnetic spin-torque oscillators.
+    \item Conducted numerical simulations of magnetization dynamics in magnetic crystals.
+\end{itemize}
+
+\section*{Open Source Projects}
+\textbf{\href{https://pypi.org/project/ml4fmri/}{ml4fmri}: Python toolkit for benchmarking DL models for fMRI analysis}
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Unified 13 DL models for multivatiate time series analysis under a standardized training API.
+    \item Automated an all-model benchmarking pipeline for any input time series for reproducible research.
+\end{itemize}
+
+\textbf{\href{https://pypi.org/project/brainbow/}{brainbow} — Neuroimaging visualization utility}
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item Created a command-line tool for visualizing obscure neuroimaging data formats.
+\end{itemize}
+
+\newpage
+\section*{Publications}
+\nocite{meanMLP}
+\nocite{PhysRevAppl2020}
+\nocite{JMMM2019}
+\nocite{RiEl2018}
+\nocite{Safin2020}
+\nocite{Safin2020a}
+\nocite{zafar}
+\nocite{decifra_mlsp}
+
+
+\printbibliography[
+heading=none, 
+sorting=ydnt
+]
+    
+\end{document}
