@@ -24,12 +24,52 @@
     sorting=ydnt,          % Year (descending), name, title
     maxbibnames=99,        % show all authors instead of "et al."
     maxcitenames=2,        % optional: limit names in in-text citations
-    giveninits=false,      % show full first names (set true for initials)
+    giveninits=true,      % show full first names (set true for initials)
     uniquename=false,      % don't force initials to distinguish same names
     doi=false,             % suppress DOI (optional)
     url=false              % suppress URL unless needed
 ]{biblatex}
 \addbibresource{references.bib}
+
+\usepackage{xstring}
+
+\DeclareNameFormat{author}{%
+  \edef\fullname{\namepartgiven\space\namepartfamily}%
+  \IfBeginWith{\fullname}{P}{%
+    \IfSubStr{\fullname}{Popov}{%
+      \mkbibbold{\namepartfamily\addcomma\space\namepartgiven}%
+    }{%
+      \namepartfamily\addcomma\space\namepartgiven%
+    }%
+  }{%
+    \namepartfamily\addcomma\space\namepartgiven%
+  }%
+  \ifnum\value{listcount}<\value{liststop}
+    \addcomma\space
+  \fi
+}
+
+\DeclareBibliographyDriver{article}{%
+  \printnames{author}%
+  \setunit{\addcomma\space}%
+  \printfield[title]{title}%
+  \setunit{\addcomma\space}%
+  \printfield{journaltitle}%
+  \setunit{\addcomma\space}%
+  \printfield{year}%
+  \finentry
+}
+
+\DeclareBibliographyDriver{inproceedings}{%
+  \printnames{author}%
+  \setunit{\addcomma\space}%
+  \printfield[title]{title}%
+  \setunit{\addcomma\space}%
+  \printfield{booktitle}%
+  \setunit{\addcomma\space}%
+  \printfield{year}%
+  \finentry
+}
 
 \titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}[\titlerule]
 \titlespacing{\section}{0pt}{12pt}{6pt}
@@ -55,7 +95,7 @@
 \end{itemize}
 
 \section*{Education}
-\textbf{PhD in Computer Science} \hfill 2022--05/2027\\
+\textbf{PhD in Computer Science} \hfill 2022--2027\\
 Georgia State University \hfill
 Specialization in Machine Learning \& Neuroimaging Analysis\\
 
@@ -95,6 +135,27 @@ Moscow Institute of Physics and Technology \hfill Specialization in Solid State 
 \end{itemize}
 
 \newpage
+
+\section*{Conferences \& Workshops}
+\newcommand{\confattend}[4][1.2em]{%
+\noindent\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} l r}
+  \hspace*{#1}\textbf{#2} & #4 \\
+  \hspace*{#1}\emph{#3} &
+\end{tabular*}\par\vspace{0.25em}
+}
+
+\confattend{IEEE Workshop on Machine Learning for Signal Processing (MLSP 2025)}{Istanbul, Turkey}{Sep 2025}
+\confattend{Organization for Human Brain Mapping (OHBM 2025)}{Brisbane, Australia}{Jun 2025}
+\confattend{GSU Research Center Brain Health Synergy Symposium}{Atlanta, GA, USA}{Dec 2024}
+\confattend{IEEE Brain Discovery and Neurotechnology Workshop}{Chicago, IL, USA}{Oct 2024}
+\confattend{Organization for Human Brain Mapping (OHBM 2023)}{Montreal, Canada}{Jul 2023}
+\confattend{Machine Learning for Science \& Engineering Workshop}{Seattle, WA, USA}{Jun 2023}
+\confattend{Euro-Asian Symposium «Trends in Magnetism» (EASTMAG 2019)}{Ekaterinburg, Russia}{Sep 2019}
+\confattend{International Congress on Ultrasonics (ICU 2019)}{Brugge, Belgium}{Sep 2019}
+
+
+
+
 \section*{Publications}
 \nocite{meanMLP}
 \nocite{PhysRevAppl2020}
@@ -104,11 +165,12 @@ Moscow Institute of Physics and Technology \hfill Specialization in Solid State 
 \nocite{Safin2020a}
 \nocite{zafar}
 \nocite{decifra_mlsp}
+\nocite{vanduyn}
 
 
 \printbibliography[
 heading=none, 
 sorting=ydnt
 ]
-    
+
 \end{document}
