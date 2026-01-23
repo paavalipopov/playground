@@ -1,7 +1,9 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=0.75in]{geometry}
-\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\definecolor{darknavy}{RGB}{0,0,100}
+\usepackage[colorlinks=true, urlcolor=darknavy, linkcolor=darknavy]{hyperref}
 \usepackage{enumitem}
 % \usepackage{fontawesome}
 \usepackage{fontawesome5}
@@ -17,71 +19,73 @@
 % (optional) math that pairs reasonably with sans body
 \usepackage{newtxsf} % sans math; or use newtxtext/newtxmath for serif math
 
-
 \usepackage[
-    backend=biber,
-    style=ieee,      % or 'ieee' / 'apa' / 'numeric-comp' depending on preference
-    sorting=ydnt,          % Year (descending), name, title
-    maxbibnames=99,        % show all authors instead of "et al."
-    maxcitenames=2,        % optional: limit names in in-text citations
-    giveninits=true,      % show full first names (set true for initials)
-    uniquename=false,      % don't force initials to distinguish same names
-    doi=false,             % suppress DOI (optional)
-    url=false              % suppress URL unless needed
-]{biblatex}
-\addbibresource{references.bib}
-
+  backend=biber,
+  style=ieee,      % or 'ieee' / 'apa' / 'numeric-comp' depending on preference
+  sorting=ydnt,          % Year (descending), name, title
+  maxbibnames=99,        % show all authors instead of "et al."
+  maxcitenames=2,        % optional: limit names in in-text citations
+  giveninits=true,      % show full first names (set true for initials)
+  uniquename=false,      % don't force initials to distinguish same names
+  doi=false,             % suppress DOI (optional)
+  url=false              % suppress URL unless needed
+  ]{biblatex}
+  \addbibresource{references.bib}
+  
 \usepackage{xstring}
 
 \DeclareNameFormat{author}{%
-  \edef\fullname{\namepartgiven\space\namepartfamily}%
-  \IfBeginWith{\fullname}{P}{%
-    \IfSubStr{\fullname}{Popov}{%
-      \mkbibbold{\namepartfamily\addcomma\space\namepartgiven}%
-    }{%
-      \namepartfamily\addcomma\space\namepartgiven%
-    }%
-  }{%
-    \namepartfamily\addcomma\space\namepartgiven%
-  }%
-  \ifnum\value{listcount}<\value{liststop}
-    \addcomma\space
-  \fi
+\edef\fullname{\namepartgiven\space\namepartfamily}%
+\IfBeginWith{\fullname}{P}{%
+\IfSubStr{\fullname}{Popov}{%
+\mkbibbold{\namepartfamily\addcomma\space\namepartgiven}%
+}{%
+\namepartfamily\addcomma\space\namepartgiven%
+}%
+}{%
+\namepartfamily\addcomma\space\namepartgiven%
+}%
+\ifnum\value{listcount}<\value{liststop}
+\addcomma\space
+\fi
 }
 
 \DeclareBibliographyDriver{article}{%
-  \printnames{author}%
-  \setunit{\addcomma\space}%
-  \printfield[title]{title}%
-  \setunit{\addcomma\space}%
-  \printfield{journaltitle}%
-  \setunit{\addcomma\space}%
-  \printfield{year}%
-  \finentry
+\printnames{author}%
+\setunit{\addcomma\space}%
+\printfield[title]{title}%
+\setunit{\addcomma\space}%
+\printfield{journaltitle}%
+\setunit{\addcomma\space}%
+\printfield{year}%
+\finentry
 }
 
 \DeclareBibliographyDriver{inproceedings}{%
-  \printnames{author}%
-  \setunit{\addcomma\space}%
-  \printfield[title]{title}%
-  \setunit{\addcomma\space}%
-  \printfield{booktitle}%
-  \setunit{\addcomma\space}%
-  \printfield{year}%
-  \finentry
+\printnames{author}%
+\setunit{\addcomma\space}%
+\printfield[title]{title}%
+\setunit{\addcomma\space}%
+\printfield{booktitle}%
+\setunit{\addcomma\space}%
+\printfield{year}%
+\finentry
 }
 
 \titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}[\titlerule]
 \titlespacing{\section}{0pt}{12pt}{6pt}
 
+\usepackage{comicneue}
+
 \begin{document}
 
 \begin{center}
-{\LARGE\textbf{Pavel Popov}}\\[0.5em]
-\href{https://github.com/paavalipopov}{\faGithub\ github.com/paavalipopov} \quad
-\href{https://www.linkedin.com/in/pavel-popov-83b69a123/}{\faLinkedin\ Pavel Popov} \quad
-\href{https://scholar.google.com/citations?user=4alUD5UAAAAJ}{\aiGoogleScholar\ Pavel Popov}
-\href{mailto:paavali.popov@gmail.com}{\faEnvelope\  paavali.popov@gmail.com}
+  % {\Huge\textbf{Pavel Popov}}\\[0.5em]
+  {\comicneue\Huge\textbf{Pavel Popov}}\\[0.5em]
+  \href{https://github.com/paavalipopov}{\faGithub\ paavalipopov} \quad
+  \href{https://www.linkedin.com/in/pavel-popov-83b69a123/}{\faLinkedin\ Pavel Popov} \quad
+  \href{https://scholar.google.com/citations?user=4alUD5UAAAAJ}{\aiGoogleScholar\ Pavel Popov} \quad
+  \href{mailto:paavali.popov@gmail.com}{\faEnvelope\  paavali.popov@gmail.com}
 \end{center}
 
 \section*{Skills}
@@ -144,9 +148,9 @@ Moscow Institute of Physics and Technology \hfill Specialization in Solid State 
 \end{tabular*}\par\vspace{0.25em}
 }
 
+\confattend{GSU Research Center Brain Health Synergy Symposium}{Atlanta, GA, USA}{Dec 2025}
 \confattend{IEEE Workshop on Machine Learning for Signal Processing (MLSP 2025)}{Istanbul, Turkey}{Sep 2025}
 \confattend{Organization for Human Brain Mapping (OHBM 2025)}{Brisbane, Australia}{Jun 2025}
-\confattend{GSU Research Center Brain Health Synergy Symposium}{Atlanta, GA, USA}{Dec 2024}
 \confattend{IEEE Brain Discovery and Neurotechnology Workshop}{Chicago, IL, USA}{Oct 2024}
 \confattend{Organization for Human Brain Mapping (OHBM 2023)}{Montreal, Canada}{Jul 2023}
 \confattend{Machine Learning for Science \& Engineering Workshop}{Seattle, WA, USA}{Jun 2023}
