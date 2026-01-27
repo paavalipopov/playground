@@ -1,5 +1,6 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc} % Not needed with XeLaTeX
+\usepackage{fontspec}
 \usepackage[margin=0.75in]{geometry}
 \usepackage{xcolor}
 \definecolor{darknavy}{RGB}{0,0,100}
@@ -81,7 +82,8 @@
 
 \begin{center}
   % {\Huge\textbf{Pavel Popov}}\\[0.5em]
-  {\comicneue\Huge\textbf{Pavel Popov}}\\[0.5em]
+  % {\comicneue\Huge\textbf{Pavel Popov}}\\[0.5em]
+  {\fontspec{JetBrains Mono}\Huge Pavel Popov}\\[0.5em]
   \href{https://github.com/paavalipopov}{\faGithub\ paavalipopov} \quad
   \href{https://www.linkedin.com/in/pavel-popov-83b69a123/}{\faLinkedin\ Pavel Popov} \quad
   \href{https://scholar.google.com/citations?user=4alUD5UAAAAJ}{\aiGoogleScholar\ Pavel Popov} \quad
