@@ -1,0 +1,3 @@
+[submodule "latex/meanMLP_latex"]
+	path = latex/meanMLP_latex
+	url = git@github.com:paavalipopov/meanMLP_latex.git
