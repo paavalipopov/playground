@@ -1,0 +1,46 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "shift+cmd+a",
+        "command": "github.copilot.completions.toggle"
+    },
+    {
+        "key": "shift+cmd+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "shift+cmd+c",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    },
+    {
+        "key": "alt+\\",
+        "command": "-editor.action.inlineSuggest.trigger",
+        "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    },
+    {
+        "key": "shift+cmd+a",
+        "command": "-notification.acceptPrimaryAction",
+        "when": "notificationFocus || notificationToastsVisible"
+    },
+    {
+        "key": "shift+cmd+a",
+        "command": "-workbench.action.chat.focusConfirmation",
+        "when": "accessibilityModeEnabled && chatIsEnabled"
+    },
+    {
+        "key": "cmd+e cmd+r",
+        "command": "sqltools.executeCurrentQuery"
+    },
+    {
+        "key": "shift+cmd+t",
+        "command": "openInIntegratedTerminal",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "cmd+t",
+        "command": "openInTerminal",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    }
+]

@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "../../../DECIFRA"
+		},
+		{
+			"path": "../../../DECIFRA_old"
+		},
+		{
+			"path": "../../../_datasets"
+		},
+		{
+			"path": "../../../_circRNA"
+		},
+		{
+			"path": "../../../multimodal-subnetworks"
+		},
+		{
+			"path": "../../../catalyst"
+		},
+		{
+			"path": "../../../glass_proj/TMI"
+		}
+	],
+	"settings": {}
+}

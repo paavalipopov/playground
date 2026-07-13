@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "PhD_defence",
+			"path": "../../../PhD_defence"
+		},
+		{
+			"name": "multimodal-subnetworks",
+			"path": "../../../multimodal-subnetworks"
+		},
+		{
+			"name": "avalanche-proj",
+			"path": "../../../avalanche-proj"
+		},
+		{
+			"name": "playground",
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
