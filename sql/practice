@@ -1,0 +1,14 @@
+3. Practice Challenges
+
+    Simple Filter: Find all products that cost more than $50.
+    select*
+
+    Basic Join: List all product names alongside their category names.
+
+    Aggregation: Calculate the total revenue (sum of total_price) from the Sales table.
+
+    The "Boss" Query: Find which category has generated the most sales revenue.
+
+    Note: This syntax works in most SQL engines like PostgreSQL, MySQL, and SQL Server. If you are using SQLite, the DECIMAL type will automatically be treated as NUMERIC.
+
+Would you like me to provide the solutions to these practice challenges, or should I show you how to add a Customers table to this schema?
