@@ -208,3 +208,29 @@ __marimo__/
 
 
 boosting/data
+
+# macOS
+.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+*.pdf
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.bcf
+*.run.xml
+
+/CV/archive
+/leetcode/*(incomplete)*
