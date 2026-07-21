@@ -79,7 +79,14 @@ rmount /data/users2/ppopov1/datasets          # -> ~/_remote_data/datasets
 rmount /data/users2/ppopov1/datasets fmri     # optional label -> ~/_remote_data/fmri
 runmount datasets                             # unmount one
 runmount                                      # prompt to unmount all
+rremount                                      # scan all mounts, rebuild dead ones
 ```
+
+After a long idle or sleep, mounts can go stale: paths still list (served from
+cache) but reading file data fails with `Input/output error`. `rremount` detects
+this and rebuilds only the dead mounts, leaving healthy ones alone. It relies on
+a hidden `.<name>.src` sidecar that `rmount` writes next to each mountpoint to
+remember the remote path.
 
 To make them work:
 
@@ -89,7 +96,7 @@ To make them work:
 open -e ~/.zshrc      # TextEdit; or: nano ~/.zshrc  /  code ~/.zshrc
 ```
 
-- Paste the two functions from below and save.
+- Paste the functions from below and save.
 
 - Source the updated config:
 
@@ -125,6 +132,7 @@ rmount() {
   local opts="ro,reconnect,idmap=user,defer_permissions,sync_readdir,ServerAliveInterval=15,ServerAliveCountMax=3"
 
   sshfs "$host:$remote" "$mp" -o "$opts" || { echo "mount failed"; return 1; }
+  echo "$remote" > "$HOME/_remote_data/.$name.src"   # remember remote path for rremount
   echo "mounted $host:$remote -> $mp (read-only)"
 }
 
@@ -161,6 +169,37 @@ runmount() {
   local mp
   for mp in "${mounts[@]}"; do
     _runmount_one "$mp"
+  done
+}
+
+# liveness probe: a stale mount still lists dirs (from cache) but can't read file
+# data. ls/stat therefore lie; only reading actual bytes crosses the SSH channel.
+# finds one non-empty file (up to 4 levels deep) and reads a single byte from it.
+_rmount_alive() {
+  local mp="$1" f
+  f=$(find "$mp" -maxdepth 4 -type f -size +0c 2>/dev/null | head -1)
+  [[ -n "$f" ]] && head -c1 "$f" >/dev/null 2>&1
+}
+
+# scan live mounts, rebuild the dead ones from their .<name>.src sidecars
+rremount() {
+  local base="$HOME/_remote_data"
+  local mounts=(${(f)"$(mount | grep -F " $base/" | awk '{print $3}')"})
+  (( ${#mounts} == 0 )) && { echo "no active mounts under $base"; return 0; }
+
+  local mp name src remote
+  for mp in "${mounts[@]}"; do
+    name="${mp:t}"
+    if _rmount_alive "$mp"; then
+      echo "alive: $name"
+      continue
+    fi
+    src="$base/.$name.src"
+    [[ -f "$src" ]] || { echo "dead:  $name — no .src saved, remount by hand"; continue; }
+    remote="$(<"$src")"
+    echo "dead:  $name — rebuilding from $remote"
+    ( cd ~ && runmount "$name" ) >/dev/null 2>&1   # cd out so unmount isn't blocked
+    rmount "$remote" "$name" >/dev/null && echo "       ok" || echo "       FAILED"
   done
 }
 ```
