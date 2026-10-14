@@ -1,12 +1,8 @@
 {
 	"folders": [
 		{
-			"name": "PhD_defence",
-			"path": "../../../PhD_defence"
-		},
-		{
-			"name": "multimodal-subnetworks",
-			"path": "../../../multimodal-subnetworks"
+			"name": "_PhD_defence",
+			"path": "../../../_PhD_defence"
 		},
 		{
 			"name": "avalanche-proj",

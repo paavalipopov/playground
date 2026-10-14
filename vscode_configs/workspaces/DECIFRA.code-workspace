@@ -1,25 +1,35 @@
 {
 	"folders": [
 		{
-			"path": "../../../DECIFRA"
+			"name": "_remote_data",
+			"path": "../../../_remote_data"
 		},
 		{
-			"path": "../../../DECIFRA_old"
-		},
-		{
+			"name": "_datasets",
 			"path": "../../../_datasets"
 		},
 		{
-			"path": "../../../_circRNA"
+			"name": "DECIFRA",
+			"path": "../../../DECIFRA"
 		},
 		{
-			"path": "../../../multimodal-subnetworks"
+			"name": "DECIFRA_old",
+			"path": "../../../DECIFRA_old"
 		},
 		{
+			"name": "ml4fmri",
+			"path": "../../../ml4fmri"
+		},
+		{
+			"name": "catalyst",
 			"path": "../../../catalyst"
 		},
 		{
+			"name": "TMI",
 			"path": "../../../glass_proj/TMI"
+		},
+		{
+			"path": "../../../_sattelite_project"
 		}
 	],
 	"settings": {}

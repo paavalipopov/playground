@@ -95,5 +95,12 @@
         }
     ],
     "explorer.autoReveal": false,
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.md": "vscode.markdown.editor"
+    },
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "window.autoDetectColorScheme": true,
+    "problems.decorations.enabled": false
 }
