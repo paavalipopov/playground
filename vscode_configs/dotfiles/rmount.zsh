@@ -48,7 +48,8 @@ rremount() {
   local mounts=(${(f)"$(mount | grep -F " $base/" | awk '{print $3}')"})
   (( ${#mounts} == 0 )) && { echo "no active mounts under $base"; return 0; }
 
-  local mp name src remote
+  local mp name src
+  local -a cmd
   for mp in "${mounts[@]}"; do
     name="${mp:t}"
     if _rmount_alive "$mp"; then
@@ -57,10 +58,13 @@ rremount() {
     fi
     src="$base/.$name.src"
     [[ -f "$src" ]] || { echo "dead:  $name — no .src saved, remount by hand"; continue; }
-    remote="$(<"$src")"
-    echo "dead:  $name — rebuilding from $remote"
-    ( cd ~ && runmount "$name" ) >/dev/null 2>&1     # cd out so unmount isn't blocked
-    rmount "$remote" "$name" >/dev/null && echo "       ok" || echo "       FAILED"
+
+    cmd=(${(Q)${(z)"$(<"$src")"}})                                    # split saved line into words
+    [[ "${cmd[1]}" == rmount ]] || cmd=(rmount "$(<"$src")" "$name")  # legacy: bare path
+
+    echo "dead:  $name — rebuilding: ${cmd[*]}"
+    ( cd ~ && runmount "$name" ) >/dev/null 2>&1                      # cd out so unmount isn't blocked
+    "${cmd[@]}" >/dev/null && echo "       ok" || echo "       FAILED"
   done
 }
 
