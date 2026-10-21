@@ -13,20 +13,12 @@
 			"path": "../../../DECIFRA"
 		},
 		{
-			"name": "DECIFRA_old",
-			"path": "../../../DECIFRA_old"
-		},
-		{
 			"name": "ml4fmri",
 			"path": "../../../ml4fmri"
 		},
 		{
 			"name": "catalyst",
 			"path": "../../../catalyst"
-		},
-		{
-			"name": "TMI",
-			"path": "../../../glass_proj/TMI"
 		},
 		{
 			"path": "../../../_sattelite_project"
