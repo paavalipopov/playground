@@ -1,0 +1,40 @@
+{
+  // Clean LaTeX builds for this folder (LaTeX Workshop).
+  // All byproducts (.aux, .log, .fls, .fdb_latexmk, .xdv, .synctex.gz, ...) go to build/.
+  // After a successful build, the PDF is copied next to its .tex, so this folder shows only .tex + .pdf.
+  // The built-in PDF viewer and SyncTeX (click-to-jump) use the copy inside build/.
+  "latex-workshop.latex.outDir": "%DIR%/build",
+
+  "latex-workshop.latex.tools": [
+    {
+      // Same as LaTeX Workshop's built-in "xelatexmk" tool (fontspec documents need XeLaTeX).
+      "name": "xelatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-xelatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      // Runs only if the build succeeded, so a failed build never overwrites the last good PDF.
+      "name": "copy-pdf",
+      "command": "cp",
+      "args": ["%OUTDIR%/%DOCFILE%.pdf", "%DIR%/%DOCFILE%.pdf"],
+      "env": {}
+    }
+  ],
+
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (xelatex) + copy PDF",
+      "tools": ["xelatexmk", "copy-pdf"]
+    }
+  ],
+
+  "latex-workshop.latex.recipe.default": "first"
+}
