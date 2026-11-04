@@ -1,6 +1,10 @@
 {
 	"folders": [
 		{
+			"name": "_sattelite_project",
+			"path": "../../../_sattelite_project"
+		},
+		{
 			"name": "_remote_data",
 			"path": "../../../_remote_data"
 		},
@@ -19,9 +23,6 @@
 		{
 			"name": "catalyst",
 			"path": "../../../catalyst"
-		},
-		{
-			"path": "../../../_sattelite_project"
 		}
 	],
 	"settings": {}

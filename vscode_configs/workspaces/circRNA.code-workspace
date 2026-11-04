@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../../_remote_data"
+		},
+		{
+			"path": "../../../catalyst"
 		}
 	],
 	"settings": {}

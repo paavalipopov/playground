@@ -102,5 +102,10 @@
     },
     "workbench.preferredLightColorTheme": "Solarized Light",
     "window.autoDetectColorScheme": true,
-    "problems.decorations.enabled": false
+    "problems.decorations.enabled": false,
+    "git.repositoryScanIgnoredFolders": [
+        "node_modules",
+        "_remote_data"
+    ],
+    "editor.stickyScroll.maxLineCount": 3
 }
