@@ -9,7 +9,7 @@ This user needs help with seeing important things happening in the explanation, 
 
 ## 1. Find the gap
 
-Work out what exactly isn't clicking before explaining. It's sometimes comes from one of these:
+Work out what exactly isn't clicking before explaining. It sometimes comes from one of these:
 
 - a word doing two jobs ("backward" meaning two different passes)
 - a missing step between input and output
@@ -18,7 +18,7 @@ Work out what exactly isn't clicking before explaining. It's sometimes comes fro
 
 Name the gap in the first sentence ("The confusion comes from..."). If the user stated their understanding, give a verdict first: right, partly, or not quite, plus the one-line fix.
 
-## 2. Introducting terms
+## 2. Introducing terms
 
 - When the explanation needs more than 5 unfamiliar terms or acronyms, open with a mini glossary, one short line each. Otherwise define each term at first use.
 - Define them a couple of times, even if they came up earlier in the conversation or in a past session. Re-explaining helps it get memorized.
@@ -29,24 +29,19 @@ Name the gap in the first sentence ("The confusion comes from..."). If the user 
 - Number the steps. Each says what goes in, what happens to it (a verb), and what comes out. Add shapes, sizes or a tiny worked example when it makes a step concrete.
 - For pipelines, data flow or study designs, add a simple diagram.
 - Point to where each step lives in the source (section, equation, figure, algorithm), so the user can check it.
-- Use analogies but with care, it's sometimes not clear when an anolagy stops reflect reality.
+- Use analogies but with care, it's sometimes not clear where an analogy stops reflecting reality.
 
-## 4. Why it matters
-
-One or two sentences: what this design buys, and its catch.
-
-## 5. Calibrate
+## 4. Calibrate
 
 - Methods the user already works with: technical and terse.
 - New concepts: start from basics, anchored to a method they already know.
 - Physics, optics, clinical, heavy statistics: plain words first, symbols second.
 - Contrasting two or more things: add a short comparison table.
 - "quickly": one or two lines.
-- Otherwise: a numbered flow, or two to four short paragraphs.
 
-## 6. Avoid
+## 5. Avoid
 
-- Verb-less fragments and interchangeable labels ("task A / task B").
+- Verb-less fragments, over-compressed sentences, and interchangeable labels ("task A / task B"). Drop detail rather than meaning.
 - History, related work, or caveats that don't change the understanding.
 
-End with one line, "Key point:", stating the single thing to hold onto. No closing question unless the user's intent is unclear.
+Usually end with one line, "Key point:", stating the single thing to hold onto; when a design trade-off is the point, say what it buys and its catch.
