@@ -1,6 +1,4 @@
 // thing for opening links to codein VS Code via browser, e.g. for code review links
-cat > ~/.finicky.js <<'EOF'
-// Send code links straight to VS Code; every other link goes to your browser
 export default {
   defaultBrowser: "Firefox", // your usual browser
   rewrite: [
